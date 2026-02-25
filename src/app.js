@@ -1,35 +1,35 @@
-// Base CDN URL for Meteocons animated icons
-const ICON_BASE = "https://cdn.jsdelivr.net/gh/basmilius/weather-icons/production/fill/animated";
+// Correct CDN path for Meteocons animated fill SVGs
+const ICON_BASE = "https://cdn.jsdelivr.net/gh/basmilius/weather-icons/production/fill/all";
 
 // WMO Weather Code mapping to Meteocons filenames
 const WMO_CODES = {
-  0:  { label: "Clear Sky",                  icon: "clear-day.svg" },
-  1:  { label: "Mainly Clear",               icon: "mostly-clear-day.svg" },
-  2:  { label: "Partly Cloudy",              icon: "partly-cloudy-day.svg" },
-  3:  { label: "Overcast",                   icon: "overcast.svg" },
-  45: { label: "Foggy",                      icon: "fog.svg" },
-  48: { label: "Icy Fog",                    icon: "fog.svg" },
-  51: { label: "Light Drizzle",              icon: "drizzle.svg" },
-  53: { label: "Drizzle",                    icon: "drizzle.svg" },
-  55: { label: "Heavy Drizzle",              icon: "drizzle.svg" },
-  61: { label: "Slight Rain",                icon: "rain.svg" },
-  63: { label: "Rain",                       icon: "rain.svg" },
-  65: { label: "Heavy Rain",                 icon: "rain.svg" },
-  71: { label: "Slight Snow",                icon: "snow.svg" },
-  73: { label: "Snow",                       icon: "snow.svg" },
-  75: { label: "Heavy Snow",                 icon: "snow.svg" },
-  77: { label: "Snow Grains",                icon: "snow.svg" },
-  80: { label: "Slight Showers",             icon: "partly-cloudy-day-rain.svg" },
-  81: { label: "Showers",                    icon: "partly-cloudy-day-rain.svg" },
-  82: { label: "Violent Showers",            icon: "thunderstorms-rain.svg" },
-  85: { label: "Snow Showers",               icon: "partly-cloudy-day-snow.svg" },
-  86: { label: "Heavy Snow Showers",         icon: "partly-cloudy-day-snow.svg" },
-  95: { label: "Thunderstorm",               icon: "thunderstorms.svg" },
-  96: { label: "Thunderstorm + Hail",        icon: "thunderstorms-rain.svg" },
-  99: { label: "Thunderstorm + Heavy Hail",  icon: "thunderstorms-rain.svg" },
+  0:  { label: "Clear Sky",                    icon: "clear-day.svg" },
+  1:  { label: "Mainly Clear",                 icon: "mostly-clear-day.svg" },
+  2:  { label: "Partly Cloudy",                icon: "partly-cloudy-day.svg" },
+  3:  { label: "Overcast",                     icon: "overcast.svg" },
+  45: { label: "Foggy",                        icon: "fog.svg" },
+  48: { label: "Icy Fog",                      icon: "fog.svg" },
+  51: { label: "Light Drizzle",                icon: "drizzle.svg" },
+  53: { label: "Drizzle",                      icon: "drizzle.svg" },
+  55: { label: "Heavy Drizzle",                icon: "drizzle.svg" },
+  61: { label: "Slight Rain",                  icon: "rain.svg" },
+  63: { label: "Rain",                         icon: "rain.svg" },
+  65: { label: "Heavy Rain",                   icon: "extreme-rain.svg" },
+  71: { label: "Slight Snow",                  icon: "snow.svg" },
+  73: { label: "Snow",                         icon: "snow.svg" },
+  75: { label: "Heavy Snow",                   icon: "extreme-snow.svg" },
+  77: { label: "Snow Grains",                  icon: "snow.svg" },
+  80: { label: "Slight Showers",               icon: "partly-cloudy-day-rain.svg" },
+  81: { label: "Showers",                      icon: "partly-cloudy-day-rain.svg" },
+  82: { label: "Violent Showers",              icon: "thunderstorms-day-rain.svg" },
+  85: { label: "Snow Showers",                 icon: "partly-cloudy-day-snow.svg" },
+  86: { label: "Heavy Snow Showers",           icon: "partly-cloudy-day-snow.svg" },
+  95: { label: "Thunderstorm",                 icon: "thunderstorms-day.svg" },
+  96: { label: "Thunderstorm + Hail",          icon: "thunderstorms-day-rain.svg" },
+  99: { label: "Thunderstorm + Heavy Hail",    icon: "thunderstorms-day-rain.svg" },
 };
 
-// Night variants for WMO codes
+// Night variants
 const WMO_NIGHT = {
   0:  "clear-night.svg",
   1:  "mostly-clear-night.svg",
@@ -42,19 +42,19 @@ const WMO_NIGHT = {
   55: "drizzle.svg",
   61: "rain.svg",
   63: "rain.svg",
-  65: "rain.svg",
+  65: "extreme-rain.svg",
   71: "snow.svg",
   73: "snow.svg",
-  75: "snow.svg",
+  75: "extreme-snow.svg",
   77: "snow.svg",
   80: "partly-cloudy-night-rain.svg",
   81: "partly-cloudy-night-rain.svg",
-  82: "thunderstorms-rain.svg",
+  82: "thunderstorms-night-rain.svg",
   85: "partly-cloudy-night-snow.svg",
   86: "partly-cloudy-night-snow.svg",
-  95: "thunderstorms.svg",
-  96: "thunderstorms-rain.svg",
-  99: "thunderstorms-rain.svg",
+  95: "thunderstorms-night.svg",
+  96: "thunderstorms-night-rain.svg",
+  99: "thunderstorms-night-rain.svg",
 };
 
 const BG_MAP = {
@@ -155,7 +155,7 @@ function renderWeekly(daily) {
     container.innerHTML += `
       <div class="weekly-row">
         <span class="day">${day}</span>
-        ${iconImg(code, true, 24)}
+        ${iconImg(code, true, 26)}
         <span class="w-temps">
           <span class="w-low">${Math.round(daily.temperature_2m_min[i])}°</span>
           <span class="w-high">${Math.round(daily.temperature_2m_max[i])}°</span>
@@ -181,7 +181,7 @@ async function loadWeather(city) {
     // Main card
     document.getElementById("location").textContent = `${geo.name}, ${geo.country_code}`;
     document.getElementById("condition").innerHTML = `
-      ${iconImg(code, isDay, 20)}
+      ${iconImg(code, isDay, 22)}
       <span>${info.label}</span>`;
     document.getElementById("tempMain").textContent = `${Math.round(cur.temperature_2m)}°`;
     document.getElementById("tempRange").textContent =
