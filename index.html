@@ -11,66 +11,79 @@
 
   <div class="app" id="app">
 
-    <!-- App Name -->
-    <div class="app-name">Atmos</div>
-
-    <!-- Search Bar -->
-    <div class="search-bar">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="cityInput" placeholder="Search for a city..." />
-      <button id="searchBtn">Go</button>
-    </div>
-
-    <!-- Main Weather Card -->
-    <div class="weather-card" id="weatherCard">
-      <div class="location" id="location">Loading...</div>
-      <div class="condition" id="condition">--</div>
-      <div class="temp-main" id="tempMain">--°</div>
-      <div class="temp-range" id="tempRange">H: --° L: --°</div>
-    </div>
-
-    <!-- Hourly Forecast -->
-    <div class="glass-card" id="hourlyCard">
-      <div class="card-label">HOURLY FORECAST</div>
-      <div class="hourly-scroll" id="hourlyScroll"></div>
-    </div>
-
-    <!-- 7-Day Forecast -->
-    <div class="glass-card" id="weeklyCard">
-      <div class="card-label">7-DAY FORECAST</div>
-      <div id="weeklyForecast"></div>
-    </div>
-
-    <!-- Details Grid -->
-    <div class="details-grid">
-      <div class="detail-card">
-        <div class="detail-label">HUMIDITY</div>
-        <div class="detail-value" id="humidity">--%</div>
-      </div>
-      <div class="detail-card">
-        <div class="detail-label">WIND</div>
-        <div class="detail-value" id="wind">-- km/h</div>
-      </div>
-      <div class="detail-card">
-        <div class="detail-label">SUNRISE</div>
-        <div class="detail-value" id="sunrise">--:--</div>
-      </div>
-      <div class="detail-card">
-        <div class="detail-label">SUNSET</div>
-        <div class="detail-value" id="sunset">--:--</div>
-      </div>
-      <div class="detail-card">
-        <div class="detail-label">FEELS LIKE</div>
-        <div class="detail-value" id="feelsLike">--°</div>
-      </div>
-      <div class="detail-card">
-        <div class="detail-label">CLOUD COVER</div>
-        <div class="detail-value" id="cloudCover">--%</div>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="app-name">Atmos</div>
+      <div class="search-bar">
+        <input type="text" id="cityInput" placeholder="Search for a city..." />
+        <button id="searchBtn">Go</button>
       </div>
     </div>
 
+    <!-- Main Layout -->
+    <div class="main-layout">
+
+      <!-- LEFT COLUMN -->
+      <div class="left-col">
+
+        <!-- Main Weather Hero -->
+        <div class="weather-card" id="weatherCard">
+          <div class="location" id="location">Loading...</div>
+          <div class="condition" id="condition">--</div>
+          <div class="temp-main" id="tempMain">--°</div>
+          <div class="temp-range" id="tempRange">H: --° L: --°</div>
+        </div>
+
+        <!-- Hourly Forecast -->
+        <div class="glass-card" id="hourlyCard">
+          <div class="card-label">HOURLY FORECAST</div>
+          <div class="hourly-scroll" id="hourlyScroll"></div>
+        </div>
+
+        <!-- 7-Day Forecast -->
+        <div class="glass-card" id="weeklyCard">
+          <div class="card-label">7-DAY FORECAST</div>
+          <div id="weeklyForecast"></div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right-col">
+
+        <!-- Details Grid -->
+        <div class="details-grid">
+          <div class="detail-card">
+            <div class="detail-label">HUMIDITY</div>
+            <div class="detail-value" id="humidity">--%</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-label">WIND</div>
+            <div class="detail-value" id="wind">-- km/h</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-label">SUNRISE</div>
+            <div class="detail-value" id="sunrise">--:--</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-label">SUNSET</div>
+            <div class="detail-value" id="sunset">--:--</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-label">FEELS LIKE</div>
+            <div class="detail-value" id="feelsLike">--°</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-label">CLOUD COVER</div>
+            <div class="detail-value" id="cloudCover">--%</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 
-  <script src="src/app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
