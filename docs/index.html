@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atmos — Documentation</title>
+  <meta name="description" content="Official documentation for Atmos, a beautiful weather app powered by Open-Meteo." />
+  <link rel="icon" type="image/png" href="../src/assets/favicon (3).png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <a href="index.html" class="header-brand">
+    <img src="../src/assets/logo.png" alt="Atmos logo" class="header-logo" onerror="this.style.display='none'" />
+    <span class="header-title">Atmos<span>.</span></span>
+  </a>
+  <div class="header-divider"></div>
+  <span class="header-badge">Docs</span>
+  <div class="header-spacer"></div>
+
+  <!-- Search -->
+  <div class="header-search" id="headerSearch" style="position:relative;">
+    <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="6.5" cy="6.5" r="4.5"/>
+      <path d="M10 10l3 3"/>
+    </svg>
+    <input type="text" id="searchInput" placeholder="Search docs…" autocomplete="off" />
+    <span class="search-kbd">⌘K</span>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <button class="mobile-menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+</header>
+
+<!-- ── Overlay ── -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- ── Page Layout ── -->
+<div class="page-layout">
+
+  <!-- Left Sidebar -->
+  <nav class="sidebar" id="sidebar" aria-label="Documentation navigation">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Getting Started</div>
+      <ul class="sidebar-nav" id="sidebarNav">
+        <li data-section="introduction">
+          <a href="#introduction" class="active">
+            <span class="nav-icon">🌤</span> Introduction
+          </a>
+        </li>
+        <li data-section="installation">
+          <a href="#installation">
+            <span class="nav-icon">⚙️</span> Installation
+          </a>
+        </li>
+        <li data-section="usage">
+          <a href="#usage">
+            <span class="nav-icon">📖</span> Usage
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">About</div>
+      <ul class="sidebar-nav" id="sidebarNav2">
+        <li data-section="accuracy">
+          <a href="#accuracy">
+            <span class="nav-icon">🎯</span> Accuracy
+          </a>
+        </li>
+        <li data-section="privacy">
+          <a href="#privacy">
+            <span class="nav-icon">🔒</span> Privacy
+          </a>
+        </li>
+        <li data-section="credits">
+          <a href="#credits">
+            <span class="nav-icon">✨</span> Credits
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Links</div>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://github.com/kebabmario/atmos" target="_blank" rel="noopener">
+            <span class="nav-icon">🐙</span> GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">
+            <span class="nav-icon">🌐</span> Open-Meteo API
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content" id="mainContent">
+
+    <!-- Introduction -->
+    <section class="content-section" id="introduction">
+      <div class="section-eyebrow">Overview</div>
+      <h1 class="section-title">Introduction</h1>
+      <p class="section-lead">
+        Atmos is a sleek, minimal weather app that delivers real-time forecasts
+        using the free and privacy-respecting <strong>Open-Meteo</strong> API.
+        No account needed — just open it and know the weather.
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌡</div>
+          <div class="feature-title">Real-time Weather</div>
+          <div class="feature-desc">Current temperature, feels like, humidity, wind and more.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <div class="feature-title">7-Day Forecast</div>
+          <div class="feature-desc">Full weekly overview with daily highs and lows.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⏱</div>
+          <div class="feature-title">Hourly Breakdown</div>
+          <div class="feature-desc">Scrollable hourly timeline for the next 24 hours.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <div class="feature-title">City Search</div>
+          <div class="feature-desc">Search any city worldwide using geocoding.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-title">Privacy First</div>
+          <div class="feature-desc">No tracking, no accounts, no data stored.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title">Zero Build Step</div>
+          <div class="feature-desc">Pure HTML, CSS &amp; JavaScript. No bundler required.</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <span class="callout-icon">ℹ️</span>
+        <div class="callout-body">
+          Atmos is hosted at <a href="https://useatmos.me" target="_blank" rel="noopener"><strong>useatmos.me</strong></a>
+          and its documentation lives at <strong>docs.useatmos.me</strong>.
+          The project is fully open-source on GitHub.
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation -->
+    <section class="content-section" id="installation">
+      <div class="section-eyebrow">Setup</div>
+      <h2 class="section-title">Installation</h2>
+      <p class="section-lead">
+        Atmos requires no build step. Running it locally is as simple as cloning
+        the repository and opening <code>index.html</code> in a browser.
+      </p>
+
+      <div class="prose">
+        <h3>Prerequisites</h3>
+        <ul>
+          <li>A modern web browser (Chrome, Firefox, Safari, Edge).</li>
+          <li>Git (optional — you can also download the ZIP).</li>
+          <li>A local HTTP server is recommended for accurate geolocation (see note below).</li>
+        </ul>
+
+        <h3>Clone &amp; Run</h3>
+      </div>
+
+      <pre data-lang="bash"><code>git clone https://github.com/kebabmario/atmos.git
+cd atmos
+
+# Option A: open directly
+open index.html
+
+# Option B: serve with any static server (recommended)
+npx serve .
+# or
+python3 -m http.server 8080</code></pre>
+
+      <div class="prose">
+        <p>Then open <code>http://localhost:8080</code> in your browser.</p>
+
+        <h3>GitHub Pages deployment</h3>
+        <p>
+          The repository is already configured to deploy automatically via GitHub Pages.
+          The main site (<a href="https://useatmos.me" target="_blank" rel="noopener">useatmos.me</a>)
+          is served from the root, while the docs site
+          (<code>docs.useatmos.me</code>) is served from the <code>/docs</code> folder.
+        </p>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div class="callout-body">
+          <strong>Custom domain setup:</strong> The root <code>CNAME</code> file contains
+          <code>useatmos.me</code>. The <code>docs/CNAME</code> file contains
+          <code>docs.useatmos.me</code>. GitHub Pages will serve each folder from its
+          respective domain when both are configured in the repository settings.
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3>Setting up <code>docs.useatmos.me</code></h3>
+        <ol>
+          <li>In your DNS provider, add a <code>CNAME</code> record pointing
+              <code>docs.useatmos.me</code> → <code>kebabmario.github.io</code>.</li>
+          <li>In the GitHub repository settings under <strong>Pages</strong>, set the
+              source to the <code>docs/</code> folder on the <code>main</code> branch.</li>
+          <li>In the <strong>Custom domain</strong> field enter <code>docs.useatmos.me</code>
+              and save. GitHub will create (or verify) <code>docs/CNAME</code> automatically.</li>
+          <li>Enable <strong>Enforce HTTPS</strong> once the certificate is issued.</li>
+        </ol>
+      </div>
+
+      <div class="callout warn">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          Do <strong>not</strong> modify the root <code>CNAME</code> file — it controls
+          the main <code>useatmos.me</code> domain. The docs-specific
+          <code>docs/CNAME</code> is separate and independent.
+        </div>
+      </div>
+    </section>
+
+    <!-- Usage -->
+    <section class="content-section" id="usage">
+      <div class="section-eyebrow">Guide</div>
+      <h2 class="section-title">Usage</h2>
+      <p class="section-lead">
+        Learn how to use Atmos to get weather data for any city, and how the
+        Open-Meteo API is integrated under the hood.
+      </p>
+
+      <div class="prose">
+        <h3>Getting weather for a city</h3>
+      </div>
+
+      <ol class="step-list">
+        <li>
+          <div class="step-content">
+            <strong>Type a city name</strong>
+            <p>Enter any city name in the search bar at the top of the app, e.g. <code>London</code>.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <strong>Press Go or hit Enter</strong>
+            <p>The app will geocode the city name using the Open-Meteo geocoding API and retrieve coordinates.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <strong>View the forecast</strong>
+            <p>Current conditions, hourly forecast for the next 24 h, and a 7-day daily outlook are displayed immediately.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="prose">
+        <h3>Open-Meteo API Integration</h3>
+        <p>
+          Atmos uses two Open-Meteo endpoints: the <strong>Geocoding API</strong> to convert
+          city names to coordinates, and the <strong>Forecast API</strong> to retrieve weather data.
+          Both are free, require no API key, and do not track users.
+        </p>
+      </div>
+
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>Purpose</th>
+            <th>Key Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>geocoding-api.open-meteo.com/v1/search</code></td>
+            <td>City name → lat/lng</td>
+            <td><code>name</code>, <code>count</code>, <code>language</code></td>
+          </tr>
+          <tr>
+            <td><code>api.open-meteo.com/v1/forecast</code></td>
+            <td>Weather data</td>
+            <td><code>latitude</code>, <code>longitude</code>, <code>hourly</code>, <code>daily</code>, <code>current_weather</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="prose">
+        <h3>Forecast variables fetched</h3>
+        <ul>
+          <li><strong>Current:</strong> temperature, windspeed, weathercode</li>
+          <li><strong>Hourly:</strong> temperature_2m, precipitation_probability, weathercode, apparent_temperature</li>
+          <li><strong>Daily:</strong> temperature_2m_max, temperature_2m_min, weathercode, sunrise, sunset, precipitation_sum</li>
+        </ul>
+        <h3>Example request</h3>
+      </div>
+
+      <pre data-lang="js"><code>const GEO_URL = 'https://geocoding-api.open-meteo.com/v1/search';
+const WX_URL  = 'https://api.open-meteo.com/v1/forecast';
+
+async function fetchWeather(city) {
+  // 1. Geocode
+  const geo = await fetch(`${GEO_URL}?name=${encodeURIComponent(city)}&count=1`);
+  const { results } = await geo.json();
+  const { latitude, longitude, name } = results[0];
+
+  // 2. Fetch forecast
+  const wx = await fetch(
+    `${WX_URL}?latitude=${latitude}&longitude=${longitude}` +
+    `&current_weather=true` +
+    `&hourly=temperature_2m,precipitation_probability,weathercode` +
+    `&daily=temperature_2m_max,temperature_2m_min,weathercode,sunrise,sunset` +
+    `&timezone=auto`
+  );
+  return wx.json();
+}</code></pre>
+
+      <div class="prose">
+        <p>
+          Full API documentation is available at
+          <a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">open-meteo.com/en/docs</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Accuracy -->
+    <section class="content-section" id="accuracy">
+      <div class="section-eyebrow">Data Quality</div>
+      <h2 class="section-title">Accuracy</h2>
+      <p class="section-lead">
+        Atmos sources its data from Open-Meteo, which aggregates multiple high-resolution
+        global numerical weather prediction (NWP) models.
+      </p>
+
+      <div class="prose">
+        <h3>Weather models used</h3>
+        <p>Open-Meteo automatically selects the best available model for your location:</p>
+        <ul>
+          <li><strong>ECMWF IFS</strong> — European Centre for Medium-Range Weather Forecasts (global, high resolution).</li>
+          <li><strong>GFS</strong> — NOAA Global Forecast System (Americas &amp; global).</li>
+          <li><strong>DWD ICON</strong> — German Weather Service (Europe, very high resolution).</li>
+          <li><strong>MeteoFrance AROME</strong> — France &amp; surrounding regions.</li>
+          <li><strong>BOM ACCESS</strong> — Australia &amp; Oceania.</li>
+        </ul>
+
+        <h3>Limitations</h3>
+        <ul>
+          <li>Forecast accuracy degrades beyond 7 days.</li>
+          <li>Local microclimates (valleys, urban heat islands) may not be fully captured.</li>
+          <li>Precipitation predictions are probabilistic — exact timing can vary by 1–2 hours.</li>
+        </ul>
+        <h3>Update frequency</h3>
+        <p>
+          Open-Meteo updates its forecasts every hour for short-range models, and every
+          6–12 hours for medium-range models. Atmos fetches fresh data on each search.
+        </p>
+      </div>
+
+      <div class="callout">
+        <span class="callout-icon">📊</span>
+        <div class="callout-body">
+          Open-Meteo reports a median absolute error of <strong>≤ 1.5 °C</strong> for
+          24-hour temperature forecasts globally. See their
+          <a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener">benchmarks</a> for details.
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="content-section" id="privacy">
+      <div class="section-eyebrow">Data &amp; Privacy</div>
+      <h2 class="section-title">Privacy</h2>
+      <p class="section-lead">
+        Atmos is built with privacy at its core. We do not collect, store, or share
+        any personal data.
+      </p>
+
+      <div class="prose">
+        <h3>What Atmos does not do</h3>
+        <ul>
+          <li>❌ No user accounts or sign-up required.</li>
+          <li>❌ No cookies set by the Atmos application.</li>
+          <li>❌ No analytics or telemetry.</li>
+          <li>❌ Your location is never sent to our servers.</li>
+          <li>❌ No data is stored between sessions.</li>
+        </ul>
+
+        <h3>Third-party services</h3>
+        <p>
+          Atmos makes requests directly from your browser to the following third-party APIs:
+        </p>
+        <ul>
+          <li>
+            <strong>Open-Meteo</strong> (<a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener">terms</a>) —
+            receives your city's coordinates to return weather data. Open-Meteo is GDPR-compliant
+            and does not store personal data.
+          </li>
+          <li>
+            <strong>Google Fonts</strong> — loads the Inter typeface. Your browser will connect
+            to Google's CDN; see
+            <a href="https://fonts.google.com/about" target="_blank" rel="noopener">Google Fonts privacy</a>.
+          </li>
+        </ul>
+
+        <h3>Self-hosting</h3>
+        <p>
+          If you require full data sovereignty, Atmos can be self-hosted by cloning the
+          repository and replacing the Google Fonts link with a locally bundled font.
+          No server-side component is needed.
+        </p>
+      </div>
+    </section>
+
+    <!-- Credits -->
+    <section class="content-section" id="credits">
+      <div class="section-eyebrow">Acknowledgements</div>
+      <h2 class="section-title">Credits</h2>
+      <p class="section-lead">
+        Atmos stands on the shoulders of open-source giants. Here's a thanks to
+        everyone who made it possible.
+      </p>
+
+      <div class="prose">
+        <h3>Data</h3>
+        <ul>
+          <li>
+            <strong><a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a></strong>
+            — Free, open-source weather API. Absolutely no API key required.
+            <span class="badge badge-green">Free &amp; Open</span>
+          </li>
+        </ul>
+
+        <h3>Fonts</h3>
+        <ul>
+          <li>
+            <strong><a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener">Inter</a></strong>
+            by Rasmus Andersson — the typeface used throughout the app and docs.
+            <span class="badge badge-blue">SIL OFL</span>
+          </li>
+        </ul>
+
+        <h3>Icons &amp; Design</h3>
+        <ul>
+          <li>Weather condition icons are rendered as Unicode emoji for maximum compatibility.</li>
+          <li>Color palette inspired by clear night-sky blues.</li>
+        </ul>
+
+        <h3>Built with</h3>
+        <ul>
+          <li>Vanilla HTML, CSS &amp; JavaScript — zero runtime dependencies.</li>
+          <li>Hosted on <strong>GitHub Pages</strong> — free, reliable, and fast.</li>
+        </ul>
+
+        <h3>Contributing</h3>
+        <p>
+          Contributions are welcome! Open an issue or pull request on
+          <a href="https://github.com/kebabmario/atmos" target="_blank" rel="noopener">GitHub</a>.
+          Please keep PRs focused and follow the existing code style.
+        </p>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">🙌</span>
+        <div class="callout-body">
+          If Atmos has been useful to you, consider giving the repository a ⭐ on GitHub!
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Right TOC -->
+  <aside class="toc-panel" id="tocPanel" aria-label="On this page">
+    <div class="toc-title">On this page</div>
+    <ul class="toc-nav" id="tocNav"></ul>
+  </aside>
+
+</div><!-- /page-layout -->
+
+<script src="script.js"></script>
+</body>
+</html>
