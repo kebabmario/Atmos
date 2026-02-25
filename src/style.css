@@ -25,11 +25,11 @@ body {
   width: 100%;
 }
 
-.app-name {
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -1px;
+.app-logo {
+  height: 36px;
+  width: auto;
   flex-shrink: 0;
+  object-fit: contain;
 }
 
 .search-bar {
