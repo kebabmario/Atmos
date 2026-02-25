@@ -73,7 +73,40 @@ body {
 
 .search-bar button:hover { background: rgba(255,255,255,0.38); }
 
-/* ── Main Layout: side by side ── */
+/* ── Top Nav Links ── */
+.top-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.top-nav-link {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  padding: 7px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: color 0.2s, background 0.2s, border-color 0.2s, opacity 0.2s;
+  white-space: nowrap;
+}
+
+.top-nav-link:hover {
+  color: rgba(255,255,255,1);
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.top-nav-link:active {
+  background: rgba(255,255,255,0.15);
+  opacity: 0.85;
+}
+
+
 .main-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -277,4 +310,5 @@ body.clear   { background: linear-gradient(160deg, #2980b9, #6dd5fa, #ffffff22);
   .top-bar { flex-direction: column; align-items: stretch; }
   .search-bar { width: 100%; }
   .temp-main { font-size: 80px; }
+  .top-nav-links { margin-left: 0; justify-content: center; }
 }
