@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Atmos</title>
-  <link rel="stylesheet" href="src/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-
   <div class="app" id="app">
 
     <!-- Top Bar -->
     <div class="top-bar">
       <div class="app-name">Atmos</div>
       <div class="search-bar">
+        <span>🔍</span>
         <input type="text" id="cityInput" placeholder="Search for a city..." />
         <button id="searchBtn">Go</button>
       </div>
@@ -26,22 +26,19 @@
       <!-- LEFT COLUMN -->
       <div class="left-col">
 
-        <!-- Main Weather Hero -->
-        <div class="weather-card" id="weatherCard">
+        <div class="weather-card">
           <div class="location" id="location">Loading...</div>
           <div class="condition" id="condition">--</div>
           <div class="temp-main" id="tempMain">--°</div>
           <div class="temp-range" id="tempRange">H: --° L: --°</div>
         </div>
 
-        <!-- Hourly Forecast -->
-        <div class="glass-card" id="hourlyCard">
+        <div class="glass-card">
           <div class="card-label">HOURLY FORECAST</div>
           <div class="hourly-scroll" id="hourlyScroll"></div>
         </div>
 
-        <!-- 7-Day Forecast -->
-        <div class="glass-card" id="weeklyCard">
+        <div class="glass-card">
           <div class="card-label">7-DAY FORECAST</div>
           <div id="weeklyForecast"></div>
         </div>
@@ -51,7 +48,6 @@
       <!-- RIGHT COLUMN -->
       <div class="right-col">
 
-        <!-- Details Grid -->
         <div class="details-grid">
           <div class="detail-card">
             <div class="detail-label">HUMIDITY</div>
@@ -84,6 +80,6 @@
     </div>
   </div>
 
-  <script src="src/app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
