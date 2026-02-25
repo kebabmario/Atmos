@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atmos — Documentation</title>
+  <link rel="icon" type="image/png" href="../src/assets/favicon (3).png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="docs-wrapper">
+
+  <!-- Sidebar Overlay (mobile) -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ── Sidebar ── -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text">🌤 Atmos</div>
+      <div class="logo-sub">Documentation</div>
+    </div>
+    <div class="sidebar-nav">
+      <a href="#introduction" class="nav-link active">
+        <span class="nav-icon">🌤</span> Introduction
+      </a>
+      <a href="#getting-started" class="nav-link">
+        <span class="nav-icon">🚀</span> Getting Started
+      </a>
+      <a href="#how-it-works" class="nav-link">
+        <span class="nav-icon">⚙️</span> How It Works
+      </a>
+      <a href="#api-reference" class="nav-link">
+        <span class="nav-icon">📡</span> API Reference
+      </a>
+      <a href="#features" class="nav-link">
+        <span class="nav-icon">✨</span> Features
+      </a>
+      <a href="#ui-theming" class="nav-link">
+        <span class="nav-icon">🎨</span> UI &amp; Theming
+      </a>
+      <a href="#responsive-design" class="nav-link">
+        <span class="nav-icon">📱</span> Responsive Design
+      </a>
+      <a href="#configuration" class="nav-link">
+        <span class="nav-icon">🔧</span> Configuration
+      </a>
+    </div>
+  </nav>
+
+  <!-- ── Main Content ── -->
+  <div class="main-content">
+
+    <!-- Top Header -->
+    <header class="top-header">
+      <span class="header-logo">🌤 Atmos</span>
+      <span class="header-divider"></span>
+      <span class="header-label">Documentation</span>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation">☰</button>
+    </header>
+
+    <!-- Content Body -->
+    <div class="content-body">
+
+      <!-- ── 1. Introduction ── -->
+      <section class="doc-section" id="introduction">
+        <h1 class="section-title">Introduction</h1>
+        <p class="section-subtitle">A clean, minimalist weather web app powered by open data.</p>
+
+        <div class="glass-card">
+          <p>
+            <strong>Atmos</strong> is a beautifully designed, minimalist weather web application that delivers
+            real-time weather information with zero setup friction. Built with pure HTML, CSS, and JavaScript —
+            no build tools, no frameworks, no API keys required.
+          </p>
+          <p>
+            Atmos is powered by the <strong>Open-Meteo API</strong>, a completely free and open-source weather
+            service that requires no registration. Weather icons are rendered using animated SVG files from the
+            <strong>Meteocons</strong> library by <code>basmilius/weather-icons</code>.
+          </p>
+          <p>
+            The interface uses a glassmorphism design language — frosted-glass cards floating over deep-blue
+            gradient backgrounds — with smooth animations and a clean typographic hierarchy.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🌍</div>
+            <div class="feature-title">No API Key</div>
+            <div class="feature-desc">Open-Meteo is completely free with no registration required.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-title">Zero Setup</div>
+            <div class="feature-desc">Open <code>index.html</code> in a browser — that's all it takes.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <div class="feature-title">Dynamic Themes</div>
+            <div class="feature-desc">Background gradients change based on current weather conditions.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <div class="feature-title">Responsive</div>
+            <div class="feature-desc">Fully responsive layout that works on any screen size.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 2. Getting Started ── -->
+      <section class="doc-section" id="getting-started">
+        <h1 class="section-title">Getting Started</h1>
+        <p class="section-subtitle">Up and running in seconds — no build step needed.</p>
+
+        <div class="glass-card">
+          <h3>Clone the repository</h3>
+          <div class="code-block">
+            <pre><code>git clone https://github.com/kebabmario/atmos.git
+cd atmos</code></pre>
+            <button class="copy-btn">Copy</button>
+          </div>
+
+          <h3>Open directly in a browser</h3>
+          <p>The simplest way — just double-click <code>index.html</code> or open it via your browser's file menu. No server required.</p>
+
+          <h3>Serve with a local dev server</h3>
+          <p>For a more realistic experience (especially for geolocation), serve with a local HTTP server:</p>
+
+          <div class="code-block">
+            <pre><code># Using Node.js (npx)
+npx serve .
+
+# Using Python 3
+python -m http.server
+
+# Using Python 2
+python -m SimpleHTTPServer</code></pre>
+            <button class="copy-btn">Copy</button>
+          </div>
+
+          <p>Then open <code>http://localhost:3000</code> (or the port shown) in your browser.</p>
+        </div>
+      </section>
+
+      <!-- ── 3. How It Works ── -->
+      <section class="doc-section" id="how-it-works">
+        <h1 class="section-title">How It Works</h1>
+        <p class="section-subtitle">A high-level overview of the app architecture and data flow.</p>
+
+        <div class="glass-card">
+          <h3>File Structure</h3>
+          <div class="code-block">
+            <pre><code>atmos/
+├── index.html          # App entry point
+└── src/
+    ├── app.js          # All application logic
+    ├── style.css       # All styles
+    └── assets/         # Icons, logo, favicon</code></pre>
+            <button class="copy-btn">Copy</button>
+          </div>
+
+          <h3>Architecture</h3>
+          <div class="arch-diagram">
+            <div class="arch-node">index.html</div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">src/style.css</div>
+            <div class="arch-arrow">+</div>
+            <div class="arch-node">src/app.js</div>
+          </div>
+
+          <h3>Data Flow on Load</h3>
+          <ol>
+            <li>Browser loads <code>index.html</code> which pulls in <code>style.css</code> and <code>app.js</code>.</li>
+            <li><code>app.js</code> calls the browser's <strong>Geolocation API</strong> to get the user's coordinates.</li>
+            <li>Coordinates are sent to the <strong>Open-Meteo forecast API</strong> to fetch current, hourly, and 7-day weather data.</li>
+            <li>The UI is populated: location name (via reverse geocoding), temperature, condition, hourly strip, weekly forecast, and detail cards.</li>
+            <li>The <code>&lt;body&gt;</code> class is updated to apply the matching dynamic background gradient.</li>
+          </ol>
+
+          <div class="section-divider"></div>
+
+          <h3>City Search Flow</h3>
+          <ol>
+            <li>User types a city name and clicks <strong>Go</strong> (or presses Enter).</li>
+            <li><code>app.js</code> calls the <strong>Open-Meteo Geocoding API</strong> with the city name.</li>
+            <li>The first result's latitude/longitude is extracted.</li>
+            <li>The full weather fetch is triggered with the new coordinates and the UI re-renders.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ── 4. API Reference ── -->
+      <section class="doc-section" id="api-reference">
+        <h1 class="section-title">API Reference</h1>
+        <p class="section-subtitle">All external API endpoints used by Atmos.</p>
+
+        <!-- Geocoding -->
+        <div class="glass-card">
+          <h3>Geocoding API</h3>
+          <p>Converts a city name into geographic coordinates (latitude &amp; longitude).</p>
+
+          <div class="endpoint-row">
+            <span class="badge badge-get">GET</span>
+            https://geocoding-api.open-meteo.com/v1/search?name={city}&amp;count=1
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>name</code></td>
+                  <td>string</td>
+                  <td>City name to search for</td>
+                </tr>
+                <tr>
+                  <td><code>count</code></td>
+                  <td>integer</td>
+                  <td>Number of results to return (Atmos uses <code>1</code>)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="code-block">
+            <pre><code>// Example response
+{
+  "results": [
+    {
+      "name": "London",
+      "latitude": 51.50853,
+      "longitude": -0.12574,
+      "country": "United Kingdom"
+    }
+  ]
+}</code></pre>
+            <button class="copy-btn">Copy</button>
+          </div>
+        </div>
+
+        <!-- Weather Forecast -->
+        <div class="glass-card">
+          <h3>Weather Forecast API</h3>
+          <p>Returns current conditions, hourly data, and 7-day daily forecasts for a given location.</p>
+
+          <div class="endpoint-row">
+            <span class="badge badge-get">GET</span>
+            https://api.open-meteo.com/v1/forecast
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Value / Example</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>latitude</code></td>
+                  <td><code>51.5085</code></td>
+                  <td>Location latitude</td>
+                </tr>
+                <tr>
+                  <td><code>longitude</code></td>
+                  <td><code>-0.1257</code></td>
+                  <td>Location longitude</td>
+                </tr>
+                <tr>
+                  <td><code>current</code></td>
+                  <td><code>temperature_2m,weathercode,<br>windspeed_10m,relativehumidity_2m,<br>apparent_temperature,cloudcover</code></td>
+                  <td>Current weather fields to include</td>
+                </tr>
+                <tr>
+                  <td><code>daily</code></td>
+                  <td><code>weathercode,temperature_2m_max,<br>temperature_2m_min,sunrise,sunset</code></td>
+                  <td>Daily forecast fields (7 days)</td>
+                </tr>
+                <tr>
+                  <td><code>hourly</code></td>
+                  <td><code>temperature_2m,weathercode</code></td>
+                  <td>Hourly forecast fields</td>
+                </tr>
+                <tr>
+                  <td><code>timezone</code></td>
+                  <td><code>auto</code></td>
+                  <td>Auto-detect timezone from coordinates</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- WMO Codes -->
+        <div class="glass-card">
+          <h3>WMO Weather Interpretation Codes</h3>
+          <p>Atmos maps WMO weather codes to human-readable labels and animated SVG icons.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Label</th>
+                  <th>Icon File</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><code>0</code></td><td>Clear Sky</td><td><code>clear-day.svg</code></td></tr>
+                <tr><td><code>1</code></td><td>Mainly Clear</td><td><code>mostly-clear-day.svg</code></td></tr>
+                <tr><td><code>2</code></td><td>Partly Cloudy</td><td><code>partly-cloudy-day.svg</code></td></tr>
+                <tr><td><code>3</code></td><td>Overcast</td><td><code>overcast.svg</code></td></tr>
+                <tr><td><code>45</code></td><td>Foggy</td><td><code>fog.svg</code></td></tr>
+                <tr><td><code>48</code></td><td>Icy Fog</td><td><code>fog.svg</code></td></tr>
+                <tr><td><code>51</code></td><td>Light Drizzle</td><td><code>drizzle.svg</code></td></tr>
+                <tr><td><code>53</code></td><td>Drizzle</td><td><code>drizzle.svg</code></td></tr>
+                <tr><td><code>55</code></td><td>Heavy Drizzle</td><td><code>drizzle.svg</code></td></tr>
+                <tr><td><code>61</code></td><td>Slight Rain</td><td><code>rain.svg</code></td></tr>
+                <tr><td><code>63</code></td><td>Rain</td><td><code>rain.svg</code></td></tr>
+                <tr><td><code>65</code></td><td>Heavy Rain</td><td><code>extreme-rain.svg</code></td></tr>
+                <tr><td><code>71</code></td><td>Slight Snow</td><td><code>snow.svg</code></td></tr>
+                <tr><td><code>73</code></td><td>Snow</td><td><code>snow.svg</code></td></tr>
+                <tr><td><code>75</code></td><td>Heavy Snow</td><td><code>extreme-snow.svg</code></td></tr>
+                <tr><td><code>77</code></td><td>Snow Grains</td><td><code>snow.svg</code></td></tr>
+                <tr><td><code>80</code></td><td>Slight Showers</td><td><code>partly-cloudy-day-rain.svg</code></td></tr>
+                <tr><td><code>81</code></td><td>Showers</td><td><code>partly-cloudy-day-rain.svg</code></td></tr>
+                <tr><td><code>82</code></td><td>Violent Showers</td><td><code>thunderstorms-day-rain.svg</code></td></tr>
+                <tr><td><code>85</code></td><td>Snow Showers</td><td><code>partly-cloudy-day-snow.svg</code></td></tr>
+                <tr><td><code>86</code></td><td>Heavy Snow Showers</td><td><code>partly-cloudy-day-snow.svg</code></td></tr>
+                <tr><td><code>95</code></td><td>Thunderstorm</td><td><code>thunderstorms-day.svg</code></td></tr>
+                <tr><td><code>96</code></td><td>Thunderstorm + Hail</td><td><code>thunderstorms-day-rain.svg</code></td></tr>
+                <tr><td><code>99</code></td><td>Thunderstorm + Heavy Hail</td><td><code>thunderstorms-day-rain.svg</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 5. Features ── -->
+      <section class="doc-section" id="features">
+        <h1 class="section-title">Features</h1>
+        <p class="section-subtitle">Everything Atmos shows you at a glance.</p>
+
+        <div class="glass-card">
+          <h3>Current Weather</h3>
+          <p>
+            The hero card at the top of the left column shows the <strong>location name</strong>,
+            current <strong>weather condition</strong> label, <strong>temperature</strong> in large
+            font (°C by default), and the day's <strong>high/low range</strong>.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <h3>Hourly Forecast</h3>
+          <p>
+            A horizontally-scrollable strip beneath the hero card displays the next
+            <strong>24 hours</strong> of forecast, each showing a small animated icon and
+            the expected temperature. Scroll with mouse wheel or swipe on touch devices.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <h3>7-Day Forecast</h3>
+          <p>
+            A weekly list below the hourly strip shows the next <strong>7 days</strong>:
+            day name abbreviation, animated weather icon, high temperature, and low temperature.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <h3>Weather Details Grid</h3>
+          <p>Six glassmorphism detail cards on the right column display:</p>
+          <ul>
+            <li><strong>Humidity</strong> — relative humidity percentage</li>
+            <li><strong>Wind Speed</strong> — wind speed in km/h</li>
+            <li><strong>Sunrise</strong> — local sunrise time (HH:MM)</li>
+            <li><strong>Sunset</strong> — local sunset time (HH:MM)</li>
+            <li><strong>Feels Like</strong> — apparent temperature in °C</li>
+            <li><strong>Cloud Cover</strong> — cloud coverage percentage</li>
+          </ul>
+        </div>
+
+        <div class="glass-card">
+          <h3>Dynamic Backgrounds</h3>
+          <p>
+            The <code>&lt;body&gt;</code> element receives a CSS class based on the current weather
+            condition, triggering a matching gradient background. See the
+            <a href="#ui-theming" style="color: rgba(255,255,255,0.7); text-decoration: underline;">UI &amp; Theming</a>
+            section for the full class list.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── 6. UI & Theming ── -->
+      <section class="doc-section" id="ui-theming">
+        <h1 class="section-title">UI &amp; Theming</h1>
+        <p class="section-subtitle">Glassmorphism design language and dynamic weather gradients.</p>
+
+        <div class="glass-card">
+          <h3>Glassmorphism Cards</h3>
+          <p>Every card in Atmos uses the following CSS pattern:</p>
+          <div class="code-block">
+            <pre><code>.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}</code></pre>
+            <button class="copy-btn">Copy</button>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <h3>Animated Icons</h3>
+          <p>
+            Weather icons are served from the <strong>Meteocons CDN</strong>
+            (<code>basmilius/weather-icons</code>). They are animated SVG files that loop
+            continuously, adding life to the UI without any JavaScript.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <h3>Dynamic Background Classes</h3>
+          <p>
+            The <code>&lt;body&gt;</code> tag has its class replaced at runtime based on the
+            WMO weather code. Each class applies a unique gradient:
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Class</th>
+                  <th>Condition</th>
+                  <th>Gradient</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>.sunny</code></td>
+                  <td>Sunny</td>
+                  <td><code>#f7971e → #ffd200</code></td>
+                </tr>
+                <tr>
+                  <td><code>.cloudy</code></td>
+                  <td>Cloudy</td>
+                  <td><code>#4b6cb7 → #182848</code></td>
+                </tr>
+                <tr>
+                  <td><code>.rainy</code></td>
+                  <td>Rainy</td>
+                  <td><code>#141e30 → #243b55</code></td>
+                </tr>
+                <tr>
+                  <td><code>.snowy</code></td>
+                  <td>Snowy</td>
+                  <td><code>#83a4d4 → #b6fbff</code></td>
+                </tr>
+                <tr>
+                  <td><code>.thunder</code></td>
+                  <td>Thunderstorm</td>
+                  <td><code>#0f0c29 → #302b63</code></td>
+                </tr>
+                <tr>
+                  <td><code>.foggy</code></td>
+                  <td>Foggy</td>
+                  <td><code>#606c88 → #3f4c6b</code></td>
+                </tr>
+                <tr>
+                  <td><code>.night</code></td>
+                  <td>Night</td>
+                  <td><code>#0f0c29 → #302b63</code></td>
+                </tr>
+                <tr>
+                  <td><code>.clear</code></td>
+                  <td>Clear</td>
+                  <td><code>#2980b9 → #6dd5fa</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="code-block">
+            <pre><code>/* Dynamic background in src/style.css */
+body.sunny   { background: linear-gradient(160deg, #f7971e, #ffd200, #f7971e); }
+body.cloudy  { background: linear-gradient(160deg, #4b6cb7, #182848); }
+body.rainy   { background: linear-gradient(160deg, #141e30, #243b55); }
+body.snowy   { background: linear-gradient(160deg, #83a4d4, #b6fbff); }
+body.thunder { background: linear-gradient(160deg, #0f0c29, #302b63, #24243e); }
+body.foggy   { background: linear-gradient(160deg, #606c88, #3f4c6b); }
+body.night   { background: linear-gradient(160deg, #0f0c29, #302b63, #24243e); }
+body.clear   { background: linear-gradient(160deg, #2980b9, #6dd5fa, #ffffff22); }</code></pre>
+            <button class="copy-btn">Copy</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 7. Responsive Design ── -->
+      <section class="doc-section" id="responsive-design">
+        <h1 class="section-title">Responsive Design</h1>
+        <p class="section-subtitle">Adapts beautifully from desktop to mobile.</p>
+
+        <div class="glass-card">
+          <h3>Desktop Layout</h3>
+          <p>
+            On screens wider than <strong>860px</strong>, the app uses a two-column CSS Grid layout:
+          </p>
+          <div class="code-block">
+            <pre><code>.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}</code></pre>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <ul>
+            <li><strong>Left column</strong>: Weather hero card, hourly forecast, 7-day forecast</li>
+            <li><strong>Right column</strong>: 6 detail cards in a 2×3 grid</li>
+          </ul>
+        </div>
+
+        <div class="glass-card">
+          <h3>Mobile Layout</h3>
+          <p>Below <strong>860px</strong>, the layout stacks to a single column:</p>
+          <div class="code-block">
+            <pre><code>@media (max-width: 860px) {
+  .main-layout { grid-template-columns: 1fr; }
+  .app { padding: 16px; }
+  .top-bar { flex-direction: column; align-items: stretch; }
+  .search-bar { width: 100%; }
+  .temp-main { font-size: 80px; }
+}</code></pre>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <ul>
+            <li>The top bar stacks vertically — search bar stretches full width</li>
+            <li>The large temperature display shrinks slightly</li>
+            <li>All cards stack in a single column for comfortable scrolling</li>
+          </ul>
+        </div>
+
+        <div class="glass-card">
+          <h3>Documentation Site</h3>
+          <p>
+            This documentation site also adapts on smaller screens: the fixed sidebar becomes a
+            toggleable drawer opened via the <strong>☰ hamburger button</strong> in the top header.
+            A semi-transparent overlay dims the content while the drawer is open.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── 8. Configuration ── -->
+      <section class="doc-section" id="configuration">
+        <h1 class="section-title">Configuration &amp; Customization</h1>
+        <p class="section-subtitle">Tweak Atmos to suit your needs.</p>
+
+        <div class="glass-card">
+          <h3>Change Default Location</h3>
+          <p>
+            By default, Atmos uses the browser's Geolocation API. To set a static fallback location,
+            find the geolocation error handler in <code>src/app.js</code> and replace the hardcoded
+            fallback coordinates:
+          </p>
+          <div class="code-block">
+            <pre><code>// In src/app.js — geolocation fallback
+navigator.geolocation.getCurrentPosition(
+  (pos) => fetchWeather(pos.coords.latitude, pos.coords.longitude),
+  () => fetchWeather(51.5085, -0.1257) // ← change these defaults (London)
+);</code></pre>
+            <button class="copy-btn">Copy</button>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <h3>Switch to Fahrenheit</h3>
+          <p>
+            Atmos uses Celsius by default. To switch to Fahrenheit, add the
+            <code>temperature_unit=fahrenheit</code> parameter to the Open-Meteo API call in
+            <code>src/app.js</code>:
+          </p>
+          <div class="code-block">
+            <pre><code>// Add &temperature_unit=fahrenheit to the forecast URL
+const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}
+  &current=temperature_2m,weathercode,...
+  &temperature_unit=fahrenheit   ← add this
+  &timezone=auto`;</code></pre>
+            <button class="copy-btn">Copy</button>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <h3>Add New WMO Codes</h3>
+          <p>
+            To support additional WMO weather codes or override existing labels/icons, edit the
+            <code>WMO_CODES</code> object at the top of <code>src/app.js</code>:
+          </p>
+          <div class="code-block">
+            <pre><code>// In src/app.js
+const WMO_CODES = {
+  0:  { label: 'Clear Sky',      icon: 'clear-day.svg' },
+  1:  { label: 'Mainly Clear',   icon: 'mostly-clear-day.svg' },
+  2:  { label: 'Partly Cloudy',  icon: 'partly-cloudy-day.svg' },
+  // ... add new codes here:
+  100: { label: 'Custom Code', icon: 'your-icon.svg' },
+};</code></pre>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <p>
+            Place custom icon SVG files in <code>src/assets/</code> and reference them by filename.
+          </p>
+        </div>
+      </section>
+
+    </div><!-- /content-body -->
+  </div><!-- /main-content -->
+
+</div><!-- /docs-wrapper -->
+
+<script src="script.js"></script>
+</body>
+</html>
